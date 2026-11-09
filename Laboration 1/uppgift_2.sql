@@ -37,10 +37,33 @@ SELECT product_name
 FROM products
 WHERE (units_in_stock + units_on_order) < reorder_level;
 
-SELECT categories.category_name
-Ta reda på vilken kategori produkten Lakkalikööri tillhör. Lös uppgiften genom att kombinera information från tabellerna products och categories.
+SELECT category_name
+FROM products
+INNER JOIN categories
+ON products.category_id = categories.category_id
+WHERE products.product_name = 'Lakkalikööri';
 
-Ta reda på vilken leverantör som levererar produkten Gravad lax. Visa produktens namn och leverantörens namn.
+SELECT product_name, company_name
+FROM products
+INNER JOIN suppliers
+ON products.supplier_id = suppliers.supplier_id
+WHERE product_name = 'Gravad lax';
+
+
+SELECT product_name, suppliers.company_name
+FROM products
+INNER JOIN suppliers
+ON products.product_id = supplier.supplier_id
+INNER JOIN suppliers
+ON 
+WHERE order_id = 10249 ;
+
+SELECT products.product_name, suppliers.company_name FROM orders
+INNER JOIN order_details ON (order_details.order_id = orders.order_id)
+INNER JOIN products ON (products.product_id = order_details.product_id)
+INNER JOIN suppliers ON products.supplier_id = suppliers.supplier_id
+WHERE orders.order_id = 10249;
+
 
 Undersök beställning 10249. Ta fram vilka produkter som ingår i beställningen och vilken leverantör som levererar respektive produkt.
 
