@@ -1,6 +1,5 @@
 SELECT employees.first_name, employees.last_name FROM employees;
 
-
 SELECT employees.home_phone FROM employees WHERE employees.title = 'Vice President, Sales';
 
 SELECT suppliers.contact_name, suppliers.contact_title, suppliers.company_name FROM suppliers WHERE suppliers.company_name = 'Svensk Sjöföda AB';
@@ -65,27 +64,50 @@ INNER JOIN suppliers ON products.supplier_id = suppliers.supplier_id
 WHERE orders.order_id = 10249;
 
 
-Undersök beställning 10249. Ta fram vilka produkter som ingår i beställningen och vilken leverantör som levererar respektive produkt.
+SELECT COUNT (title)
+FROM employees
+WHERE title = 'Sales Representative';
 
-För att lösa uppgiften behöver du kombinera information från flera relaterade tabeller.
+SELECT SUM(order_details.unit_price * quantity)
+FROM order_details
+INNER JOIN orders ON orders.order_id = order_details.order_id
+INNER JOIN products ON order_details.product_id = products.product_id
+WHERE order_date = '1996-12-12';
 
-Ta reda på hur många anställda som har titeln Sales Representative. Resultatet ska visas som ett antal.
+SELECT products.product_name, categories.category_name, SUM(order_details.quantity)
+FROM products
+INNER JOIN categories ON products.category_id = categories.category_id
+INNER JOIN order_details ON products.product_id = order_details.product_id
+GROUP BY products.product_name, categories.category_name;
 
-Beräkna det totala värdet av de produkter som beställdes den 12 december 1996.
+SELECT company_name
+FROM customers
+INNER JOIN customers ON customers.customer_id = orders.customer_id
+WHERE order_details.quantity = 0;
+SELECT customers.company_name
+FROM customers
+LEFT JOIN orders ON orders.customer_id = customers.customer_id
+WHERE orders.order_id IS NULL;
 
-2.17 (VG)
-Ta fram den totala sålda mängden för varje produkt och visa samtidigt vilken kategori produkten tillhör.
+SELECT unit_price, product_name
+FROM products
+WHERE category_id = 4; 
 
-Resultatet ska innehålla produktens namn, kategori och den totala mängd som har sålts av produkten.
+UPDATE products
+SET unit_price = unit_price * 1.20
+WHERE category_id = 4;
 
-Ta reda på vilka kunder som aldrig har gjort någon beställning.
+SELECT unit_price, product_name
+FROM products
+WHERE category_id = 4; 
 
-Det finns flera sätt att lösa uppgiften. Välj en lämplig SQL-lösning och var beredd att förklara hur din lösning identifierar kunder som saknar beställningar.
+SELECT products.product_name, products.unit_price
+FROM products
+INNER JOIN suppliers ON suppliers.supplier_id = products.supplier_id
+WHERE suppliers.company_name = 'Tokyo Traders';
 
-Höj priset med 20 % för samtliga produkter som tillhör kategorin med category_id = 4.
-
-Kontrollera priserna före och efter uppdateringen så att du kan verifiera att rätt produkter har ändrats.
-
-Höj priset med 10 % för samtliga produkter som levereras av Tokyo Traders.
-
-Kontrollera priserna före och efter uppdateringen och verifiera att endast produkter från rätt leverantör har ändrats.
+UPDATE products
+SET unit_price = unit_price * 1.10
+FROM suppliers
+WHERE suppliers.supplier_id = products.supplier_id
+  AND suppliers.company_name = 'Tokyo Traders';
