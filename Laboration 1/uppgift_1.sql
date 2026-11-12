@@ -97,7 +97,7 @@ FROM anime_list
 INNER JOIN watch_list
 ON anime_list.anime_id = watch_list.anime_id;
 
-UPDATE anime_lisT SET total_nr_episodes = total_nr_episodes + 12
+UPDATE anime_list SET total_nr_episodes = total_nr_episodes + 12
 WHERE anime_list.title = 'Demon Slayer';
 
 
@@ -135,3 +135,5 @@ WHERE anime_list.title = 'Jujutsu Kaisen';
 
 SELECT FROM anime_list
 WHERE anime_list.title = 'Jujutsu Kaisen';
+
+DELETE FROM anime_list

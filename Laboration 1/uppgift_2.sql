@@ -68,10 +68,9 @@ SELECT COUNT (title)
 FROM employees
 WHERE title = 'Sales Representative';
 
-SELECT SUM(order_details.unit_price * quantity)
+SELECT SUM(unit_price * quantity)
 FROM order_details
 INNER JOIN orders ON orders.order_id = order_details.order_id
-INNER JOIN products ON order_details.product_id = products.product_id
 WHERE order_date = '1996-12-12';
 
 SELECT products.product_name, categories.category_name, SUM(order_details.quantity)
@@ -80,10 +79,6 @@ INNER JOIN categories ON products.category_id = categories.category_id
 INNER JOIN order_details ON products.product_id = order_details.product_id
 GROUP BY products.product_name, categories.category_name;
 
-SELECT company_name
-FROM customers
-INNER JOIN customers ON customers.customer_id = orders.customer_id
-WHERE order_details.quantity = 0;
 SELECT customers.company_name
 FROM customers
 LEFT JOIN orders ON orders.customer_id = customers.customer_id
