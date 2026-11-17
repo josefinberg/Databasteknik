@@ -121,19 +121,18 @@ WHERE genre_name = 'Action';
 DELETE FROM watch_list
 WHERE  anime_id = 1;
 
-SELECT  FROM watch_list
+SELECT FROM watch_list
 WHERE anime_id = 1;
 
 DELETE FROM anime_genre
 WHERE anime_id = 1; 
 
-SELECT FROM anime_genre
+SELECT  FROM anime_genre
 WHERE anime_id = 1;
 
 DELETE FROM anime_list
 WHERE anime_list.title = 'Jujutsu Kaisen';
 
-SELECT FROM anime_list
+SELECT *
+FROM anime_list
 WHERE anime_list.title = 'Jujutsu Kaisen';
-
-DELETE FROM anime_list

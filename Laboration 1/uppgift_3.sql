@@ -6,7 +6,7 @@ LANGUAGE plpgsql
 AS $$ 
 BEGIN
     UPDATE products
-    SET unit_price = unit_price / 1.05;
+    SET unit_price = unit_price * 1.05;
 END;
 $$;
 
@@ -23,6 +23,7 @@ END;
 $$;
 
 CALL increase_price_category(1);
+
 SELECT unit_price, product_name, category_id
 FROM products
 WHERE category_id = 1;
@@ -63,9 +64,18 @@ UPDATE products
 SET unit_price = unit_price * 2
 WHERE product_id = 1;
 
+SELECT product_id, product_name, unit_price
+FROM products
+WHERE product_id = 1;
+
 UPDATE products
 SET relationshipstatus = 'In love'
 WHERE product_id = 2;
+
+SELECT product_id, product_name, unit_price
+FROM products
+WHERE product_id = 1;
+
 
 ROLLBACK;
 

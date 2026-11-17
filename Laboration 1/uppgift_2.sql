@@ -1,6 +1,6 @@
-SELECT employees.first_name, employees.last_name FROM employees;
+SELECT first_name, last_name FROM employees;
 
-SELECT employees.home_phone FROM employees WHERE employees.title = 'Vice President, Sales';
+SELECT home_phone FROM employees WHERE title = 'Vice President, Sales';
 
 SELECT suppliers.contact_name, suppliers.contact_title, suppliers.company_name FROM suppliers WHERE suppliers.company_name = 'Svensk Sjöföda AB';
 
