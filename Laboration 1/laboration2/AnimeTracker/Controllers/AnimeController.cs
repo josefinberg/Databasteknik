@@ -29,5 +29,9 @@ namespace AnimeTracker.Controllers
 
             return View(animeList);
         }
+        public IActionResult Add(AnimeViewModel model)
+        {
+            return View(model);
+        }
     }
 }
