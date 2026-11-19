@@ -1,0 +1,15 @@
+<h1>@ViewBag.Message</h1>
+
+@model List<AnimeTracker.Models.Anime>
+
+<h1>Upptäck anime</h1>
+
+@foreach (var anime in Model)
+{
+    <h2>@anime.Title</h2>
+    <p>Antal avsnitt: @anime.TotalNrEpisodes</p>
+        <form asp-controller="Anime" asp-action="AddToList" method="post">
+        <input type="hidden" name="id" value="@anime.AnimeId" />
+        <button type="submit">Lägg till i har sett</button>
+    </form>
+}

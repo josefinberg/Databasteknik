@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnimeTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b865ff56c368b912327acd85cd734b8e28a3c4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bd63615644240831742d452ba43fa5dddc1b04b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnimeTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnimeTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
