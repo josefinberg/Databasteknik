@@ -1,0 +1,36 @@
+
+@model AnimeTracker.Models.AnimeViewModel
+
+<h1>Lägg till anime</h1>
+
+<form asp-action="Add" method="post">
+
+    <label asp-for="Title">Anime title</label><br />
+    <span asp-validation-for="Title"></span>
+    <input asp-for="Title" type="text"/><br />
+
+    <label asp-for="TotalNrEpisodes">Number of episodes</label><br />
+    <span asp-validation-for="TotalNrEpisodes"></span>
+    <input asp-for="TotalNrEpisodes" type="number"/><br />
+
+    <label asp-for="Genre">Genre</label><br />
+
+    <select asp-for="Genre">
+    <option value="">Choose genre</option>
+
+    @foreach (var genre in Model.Genres)
+    {
+        <option value="@genre">@genre</option>
+    }
+</select>
+    <br />
+
+    <label>
+        <input asp-for="IsFavorite" type="checkbox" />
+        Favorite
+    </label>
+    <br />
+
+    <button type="submit">Lägg till anime</button>
+
+</form>

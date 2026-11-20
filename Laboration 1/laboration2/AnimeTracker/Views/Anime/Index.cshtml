@@ -2,10 +2,11 @@
 
 <h1>@ViewBag.Message</h1>
 
-<h1>Mina anime</h1>
+<h2>Mina anime</h2>
+<p>@ViewData[index: "Info"], totalt @ViewBag.TotalEpisodes avsnitt (ca @ViewBag.Hours timmar).</p>
 
-@foreach (var anime in Model.Where(anime => anime.HasWatched == true))
+@foreach (var anime in Model)
 {
-    <h2>@anime.Title</h2>
+    <h3>@anime.Title @(anime.IsFavorite ? "<3" : "")</h3>
     <p>Antal avsnitt: @anime.TotalNrEpisodes</p>
 }
