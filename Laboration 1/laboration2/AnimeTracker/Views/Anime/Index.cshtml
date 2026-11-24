@@ -4,6 +4,13 @@
 
 <h2>Mina anime</h2>
 <p>@ViewData[index: "Info"], totalt @ViewBag.TotalEpisodes avsnitt (ca @ViewBag.Hours timmar).</p>
+<a href="\Anime\Discover" class="button">
+    Gå till Anime
+</a>
+<p>Senast tillagd: @ViewBag.LastAdded</p>
+<a href="\Anime\Add" class="button">
+    Lägg till egen anime
+</a>
 
 @foreach (var anime in Model)
 {

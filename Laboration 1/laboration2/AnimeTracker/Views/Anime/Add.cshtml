@@ -1,5 +1,6 @@
 
 @model AnimeTracker.Models.AnimeViewModel
+@if (ViewBag.LastAdded != null) { <p>Senast tillagd: @ViewBag.LastAdded</p> }
 
 <h1>Lägg till anime</h1>
 
